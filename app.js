@@ -6,7 +6,7 @@
 
   // Canal de contacto del formulario. Completá al menos uno.
   // whatsapp: número internacional sin "+" ni espacios, por ejemplo '5491155550000'.
-  const CONTACT = { whatsapp: '', email: '' };
+  const CONTACT = { whatsapp: '5491132020548', email: 'constructurabflsrl@hotmail.com' };
 
   const root = document.documentElement;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -69,20 +69,17 @@
     $$('[data-hero], [data-hero-split]').forEach(el => el.classList.add('in'));
     setTimeout(() => loader && loader.remove(), 1400);
   }
-  // Si el navegador bloqueó la música, el loader pasa a ser una portada con "Entrar con música"
+  // La portada con "Ver desarrollo" aparece siempre: ese clic es el gesto que habilita la música en todos los navegadores
   function showGate() {
     lockScroll(true);
     loader.classList.add('gate');
     loader.removeAttribute('aria-hidden');
-    const enter = $('[data-enter="sound"]', loader);
+    const enter = $('[data-enter]', loader);
     enter.addEventListener('click', () => { music.start(); reveal(); }, { once: true });
-    $('[data-enter="silent"]', loader).addEventListener('click', () => { music.stop(); reveal(); }, { once: true });
     enter.focus({ preventScroll: true });
   }
   Promise.race([assetsReady, new Promise(r => setTimeout(r, 3500))]).then(() => {
-    setTimeout(() => {
-      music.decided.then(state => ((state === 'blocked' || state === 'pending') && loader ? showGate() : reveal()));
-    }, Math.max(0, minShow - (performance.now() - t0)));
+    setTimeout(() => (loader ? showGate() : reveal()), Math.max(0, minShow - (performance.now() - t0)));
   });
 
   /* ---------- Música de fondo ---------- */

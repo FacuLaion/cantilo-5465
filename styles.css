@@ -195,12 +195,10 @@ body::after {
 .loader-bar i { display: block; height: 100%; background: var(--accent); transform-origin: left; animation: load 1.2s var(--ease) both; }
 @keyframes rise { from { transform: translateY(110%); } to { transform: none; } }
 @keyframes load { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-/* Portada de entrada: solo aparece si el navegador bloqueó la música al abrir */
+/* Portada de entrada: aparece siempre; el clic en "Ver desarrollo" habilita la música */
 .loader-gate { display: none; }
 .loader.gate .loader-bar { display: none; }
 .loader.gate .loader-gate { display: grid; justify-items: center; gap: 10px; margin-top: 32px; animation: gateIn .8s var(--ease) .5s both; }
-.loader-skip { padding: 10px 12px; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-3); transition: color .3s; }
-.loader-skip:hover { color: var(--text); }
 @keyframes gateIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
 /* ---------- Navegación ---------- */
