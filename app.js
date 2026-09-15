@@ -76,12 +76,12 @@
     loader.removeAttribute('aria-hidden');
     const enter = $('[data-enter="sound"]', loader);
     enter.addEventListener('click', () => { music.start(); reveal(); }, { once: true });
-    $('[data-enter="silent"]', loader).addEventListener('click', reveal, { once: true });
+    $('[data-enter="silent"]', loader).addEventListener('click', () => { music.stop(); reveal(); }, { once: true });
     enter.focus({ preventScroll: true });
   }
   Promise.race([assetsReady, new Promise(r => setTimeout(r, 3500))]).then(() => {
     setTimeout(() => {
-      music.decided.then(state => (state === 'blocked' && loader ? showGate() : reveal()));
+      music.decided.then(state => ((state === 'blocked' || state === 'pending') && loader ? showGate() : reveal()));
     }, Math.max(0, minShow - (performance.now() - t0)));
   });
 
@@ -91,7 +91,7 @@
   const bgm = $('#bgm');
   const soundBtn = $('.sound-btn');
   const player = $('#player');
-  const music = { decided: Promise.resolve('off'), start() {} };
+  const music = { decided: Promise.resolve('off'), start() {}, stop() {} };
   if (bgm && soundBtn && player) {
     const VOL_KEY = 'cantilo-volumen';
     const toggle = $('.player-toggle', player);
@@ -173,15 +173,25 @@
     paint();
     paintVol();
     music.start = () => { play().catch(() => {}); };
+    music.stop = () => { if (!bgm.paused) stop(); };
     // Intento de arranque automático: 'playing', 'blocked' (el navegador pide un clic) o 'pending' (sigue cargando)
+    const srcAttr = bgm.getAttribute('src') || '';
+    const source = srcAttr.startsWith('data:')
+      ? fetch(srcAttr).then(r => r.blob()).then(b => new Promise(res => {
+          bgm.src = URL.createObjectURL(b);
+          bgm.addEventListener('canplay', res, { once: true });
+          setTimeout(res, 3000);
+          bgm.load();
+        })).catch(() => {})
+      : Promise.resolve();
     music.decided = new Promise(resolve => {
       let settled = false;
       const done = s => { if (!settled) { settled = true; resolve(s); } };
       bgm.volume = 0;
-      Promise.resolve(bgm.play())
+      source.then(() => Promise.resolve(bgm.play()))
         .then(() => { fadeTo(vol, 2500); done('playing'); })
         .catch(err => done(err && err.name === 'NotAllowedError' ? 'blocked' : 'error'));
-      setTimeout(() => done('pending'), 1500);
+      setTimeout(() => done('pending'), 4000);
     });
   }
 
