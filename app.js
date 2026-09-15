@@ -83,8 +83,8 @@
   });
 
   /* ---------- Música de fondo ---------- */
-  // Al abrir intenta sonar sola. Si el navegador la bloquea (lo normal al abrir el archivo con doble clic),
-  // el loader muestra "Entrar con música" y arranca con ese clic. Las barras del nav abren Play/Stop y volumen.
+  // Al abrir intenta sonar sola (si el navegador lo permite). La portada "Ver desarrollo" se muestra siempre y
+  // su clic es el gesto que habilita el audio donde estaba bloqueado. Las barras del nav abren Play/Stop y volumen.
   const bgm = $('#bgm');
   const soundBtn = $('.sound-btn');
   const player = $('#player');
