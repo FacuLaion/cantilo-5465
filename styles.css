@@ -161,15 +161,15 @@ body::after {
   transition: clip-path 1.2s var(--ease);
 }
 .loader.done { clip-path: inset(0 0 100% 0); }
-/* Logo Villegas Development en la portada: PNG monocromo como máscara; entra desenfocado y un brillo lo cruza */
+/* Logo FNV Group en la portada (PNG "Footer Cantilo-03" como máscara); entra desenfocado y un brillo lo cruza */
 .loader-inner { display: grid; justify-items: center; }
 .loader-logo {
-  width: clamp(240px, 34vw, 420px);
-  aspect-ratio: 1200 / 244;
-  margin-bottom: 36px;
+  width: clamp(180px, 22vw, 270px);
+  aspect-ratio: 1000 / 90;
+  margin-bottom: 34px;
   background: linear-gradient(105deg, var(--text) 36%, #fff 47%, var(--accent) 52%, var(--text) 64%) 100% 0 / 260% 100% no-repeat, var(--text);
-  -webkit-mask: url(assets/img/villegas.png) center / contain no-repeat;
-  mask: url(assets/img/villegas.png) center / contain no-repeat;
+  -webkit-mask: url(assets/img/fnv-group.png) center / contain no-repeat;
+  mask: url(assets/img/fnv-group.png) center / contain no-repeat;
   animation: logoIn 1.4s var(--ease) both, shine 2.4s cubic-bezier(.4, 0, .2, 1) .9s 1 both;
 }
 @keyframes logoIn { from { opacity: 0; transform: translateY(16px) scale(.96); filter: blur(10px); } to { opacity: 1; transform: none; filter: blur(0); } }
@@ -912,14 +912,16 @@ body::after {
 .foot-nav a:hover { color: var(--text); }
 .foot-legal { grid-column: 9 / span 4; font-size: .84rem; color: var(--text-3); }
 /* Desarrollo / Comercializa: logos en gris (máscara + color) para contrastar con el fondo */
-/* Formato del PDF "Footer Cantilo": dos bloques centrados, logo arriba y leyenda abajo, todo en gris */
-.foot-partners { display: grid; grid-template-columns: 1fr 1fr; justify-items: center; gap: 40px; margin-top: 64px; padding: 48px 0 8px; border-top: 1px solid var(--line); }
-.partner { display: grid; grid-template-rows: 110px auto; justify-items: center; align-items: center; gap: 26px; text-align: center; }
-.partner-label { font-size: .72rem; line-height: 1; letter-spacing: .2em; text-transform: uppercase; color: var(--text-3); }
-.partner-logo { display: block; background: var(--text-3); -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; transition: background-color .4s; }
-.partner:hover .partner-logo { background: var(--text-2); }
-.partner-logo-villegas { width: 270px; aspect-ratio: 1200 / 244; -webkit-mask-image: url(assets/img/villegas.png); mask-image: url(assets/img/villegas.png); }
-.partner-logo-firma { width: 240px; aspect-ratio: 1011 / 419; -webkit-mask-image: url(assets/img/np-firma.png); mask-image: url(assets/img/np-firma.png); }
+/* Pie de marcas: la pieza "Footer Cantilo-01" tal cual (logos + leyendas), centrada y al ~48 % del ancho como en la referencia */
+.foot-partners { display: grid; justify-items: center; margin-top: 64px; padding: 44px 0 4px; border-top: 1px solid var(--line); }
+.foot-partners-art {
+  display: block;
+  width: min(48vw, 640px);
+  aspect-ratio: 1800 / 378;
+  background: var(--text-3);
+  -webkit-mask: url(assets/img/fnv-footer.png) center / contain no-repeat;
+  mask: url(assets/img/fnv-footer.png) center / contain no-repeat;
+}
 .foot-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--text-3); }
 .foot-bottom a { display: inline-flex; align-items: center; gap: 8px; transition: color .3s; }
 .foot-bottom a:hover { color: var(--text); }
@@ -1155,7 +1157,7 @@ body::after {
 
   .foot-brand, .foot-nav, .foot-legal { grid-column: 1; }
   .foot-bottom { flex-direction: column; }
-  .foot-partners { grid-template-columns: 1fr; gap: 48px; }
+  .foot-partners-art { width: 80vw; }
   .foot-credits { justify-content: flex-start; text-align: left; }
 
   .lightbox { grid-template-columns: 1fr; padding: 16px; }
@@ -1178,9 +1180,7 @@ body::after {
   .nav .btn-sm { padding: 0 12px; }
   .sound-btn { width: 34px; border-color: transparent; }
   .hero-ctas .btn-ghost { display: none; }
-  .loader-logo { width: 76vw; }
-  .partner-logo-villegas { width: 230px; }
-  .partner-logo-firma { width: 200px; }
+  .loader-logo { width: 56vw; }
   .stats dd { font-size: 2rem; }
 }
 
