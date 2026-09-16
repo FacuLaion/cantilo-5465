@@ -6,7 +6,7 @@
 
   // Canal de contacto del formulario. Completá al menos uno.
   // whatsapp: número internacional sin "+" ni espacios, por ejemplo '5491155550000'.
-  const CONTACT = { whatsapp: '5491132020548', email: 'constructurabflsrl@hotmail.com' };
+  const CONTACT = { whatsapp: '5491132020548', email: 'constructorabflsrl@hotmail.com' };
 
   const root = document.documentElement;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
