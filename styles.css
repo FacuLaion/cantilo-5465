@@ -912,16 +912,18 @@ body::after {
 .foot-nav a:hover { color: var(--text); }
 .foot-legal { grid-column: 9 / span 4; font-size: .84rem; color: var(--text-3); }
 /* Desarrollo / Comercializa: logos en gris (máscara + color) para contrastar con el fondo */
-/* Pie de marcas: la pieza "Footer Cantilo-01" tal cual (logos + leyendas), centrada y al ~48 % del ancho como en la referencia */
+/* Pie de marcas: mitad izquierda de "Footer Cantilo-01" (FNV GROUP + leyenda), centrada. La firma Pescatore va chica en la línea final */
 .foot-partners { display: grid; justify-items: center; margin-top: 64px; padding: 44px 0 4px; border-top: 1px solid var(--line); }
 .foot-partners-art {
   display: block;
-  width: min(48vw, 640px);
-  aspect-ratio: 1800 / 378;
+  width: min(24vw, 300px);
+  aspect-ratio: 1200 / 333;
   background: var(--text-3);
-  -webkit-mask: url(assets/img/fnv-footer.png) center / contain no-repeat;
-  mask: url(assets/img/fnv-footer.png) center / contain no-repeat;
+  -webkit-mask: url(assets/img/fnv-dev.png) center / contain no-repeat;
+  mask: url(assets/img/fnv-dev.png) center / contain no-repeat;
 }
+.foot-arch { display: inline-flex; align-items: center; gap: 10px; }
+.foot-arch-logo { display: inline-block; width: 58px; aspect-ratio: 400 / 146; background: var(--text-3); -webkit-mask: url(assets/img/np-firma.png) center / contain no-repeat; mask: url(assets/img/np-firma.png) center / contain no-repeat; }
 .foot-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--text-3); }
 .foot-bottom a { display: inline-flex; align-items: center; gap: 8px; transition: color .3s; }
 .foot-bottom a:hover { color: var(--text); }
@@ -1157,7 +1159,7 @@ body::after {
 
   .foot-brand, .foot-nav, .foot-legal { grid-column: 1; }
   .foot-bottom { flex-direction: column; }
-  .foot-partners-art { width: 80vw; }
+  .foot-partners-art { width: 58vw; }
   .foot-credits { justify-content: flex-start; text-align: left; }
 
   .lightbox { grid-template-columns: 1fr; padding: 16px; }
