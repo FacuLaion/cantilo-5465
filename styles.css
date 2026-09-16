@@ -918,17 +918,14 @@ body::after {
 .foot-nav a:hover { color: var(--text); }
 .foot-legal { grid-column: 9 / span 4; font-size: .84rem; color: var(--text-3); }
 /* Desarrollo / Comercializa: logos en gris (máscara + color) para contrastar con el fondo */
-.foot-partners { display: flex; align-items: start; gap: clamp(56px, 9vw, 140px); margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line); }
-/* Dos filas iguales en ambos bloques: rótulos en la misma línea, marcas centradas en una fila de altura fija */
-.partner { display: grid; grid-template-rows: auto 84px; align-items: center; gap: 22px; }
-.partner-label { font-size: .7rem; line-height: 1; letter-spacing: .2em; text-transform: uppercase; color: var(--text-3); }
-.partner-fv { display: grid; gap: 5px; color: var(--text-3); transition: color .4s; }
-.partner-fv b { font-size: 2.7rem; font-weight: 200; line-height: 1; letter-spacing: .1em; }
-.partner-fv small { font-size: .62rem; letter-spacing: .32em; text-transform: uppercase; }
-.partner:hover .partner-fv { color: var(--text-2); }
+/* Formato del PDF "Footer Cantilo": dos bloques centrados, logo arriba y leyenda abajo, todo en gris */
+.foot-partners { display: grid; grid-template-columns: 1fr 1fr; justify-items: center; gap: 40px; margin-top: 64px; padding: 48px 0 8px; border-top: 1px solid var(--line); }
+.partner { display: grid; grid-template-rows: 110px auto; justify-items: center; align-items: center; gap: 26px; text-align: center; }
+.partner-label { font-size: .72rem; line-height: 1; letter-spacing: .2em; text-transform: uppercase; color: var(--text-3); }
 .partner-logo { display: block; background: var(--text-3); -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; transition: background-color .4s; }
 .partner:hover .partner-logo { background: var(--text-2); }
-.partner-logo-firma { width: 200px; aspect-ratio: 1011 / 419; -webkit-mask-image: url(assets/img/np-firma.png); mask-image: url(assets/img/np-firma.png); }
+.partner-logo-villegas { width: 270px; aspect-ratio: 1200 / 244; -webkit-mask-image: url(assets/img/villegas.png); mask-image: url(assets/img/villegas.png); }
+.partner-logo-firma { width: 240px; aspect-ratio: 1011 / 419; -webkit-mask-image: url(assets/img/np-firma.png); mask-image: url(assets/img/np-firma.png); }
 .foot-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--text-3); }
 .foot-bottom a { display: inline-flex; align-items: center; gap: 8px; transition: color .3s; }
 .foot-bottom a:hover { color: var(--text); }
@@ -1164,7 +1161,7 @@ body::after {
 
   .foot-brand, .foot-nav, .foot-legal { grid-column: 1; }
   .foot-bottom { flex-direction: column; }
-  .foot-partners { flex-direction: column; align-items: flex-start; gap: 36px; }
+  .foot-partners { grid-template-columns: 1fr; gap: 48px; }
   .foot-credits { justify-content: flex-start; text-align: left; }
 
   .lightbox { grid-template-columns: 1fr; padding: 16px; }
@@ -1187,7 +1184,8 @@ body::after {
   .nav .btn-sm { padding: 0 12px; }
   .sound-btn { width: 34px; border-color: transparent; }
   .hero-ctas .btn-ghost { display: none; }
-  .partner-logo-firma { width: 170px; }
+  .partner-logo-villegas { width: 230px; }
+  .partner-logo-firma { width: 200px; }
   .stats dd { font-size: 2rem; }
 }
 
