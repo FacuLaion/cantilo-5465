@@ -161,25 +161,19 @@ body::after {
   transition: clip-path 1.2s var(--ease);
 }
 .loader.done { clip-path: inset(0 0 100% 0); }
-/* Marca FV Constructora en la portada (tipográfica, no hay archivo de logo): entra desenfocada y un brillo cruza las iniciales */
+/* Logo Villegas Development en la portada: PNG monocromo como máscara; entra desenfocado y un brillo lo cruza */
 .loader-inner { display: grid; justify-items: center; }
-.loader-brand { display: grid; justify-items: center; gap: 8px; margin: 0 0 34px; animation: logoIn 1.4s var(--ease) both; }
-.lb-initials {
-  font-size: clamp(4.4rem, 9vw, 7.2rem);
-  font-weight: 200;
-  line-height: 1;
-  letter-spacing: .1em;
-  padding-left: .1em;
-  color: var(--text);
-  background: linear-gradient(105deg, var(--text) 36%, #fff 47%, var(--accent) 52%, var(--text) 64%) 100% 0 / 260% 100% no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 2.4s cubic-bezier(.4, 0, .2, 1) .9s 1 both;
+.loader-logo {
+  width: clamp(240px, 34vw, 420px);
+  aspect-ratio: 1200 / 244;
+  margin-bottom: 36px;
+  background: linear-gradient(105deg, var(--text) 36%, #fff 47%, var(--accent) 52%, var(--text) 64%) 100% 0 / 260% 100% no-repeat, var(--text);
+  -webkit-mask: url(assets/img/villegas.png) center / contain no-repeat;
+  mask: url(assets/img/villegas.png) center / contain no-repeat;
+  animation: logoIn 1.4s var(--ease) both, shine 2.4s cubic-bezier(.4, 0, .2, 1) .9s 1 both;
 }
-.lb-name { font-size: clamp(.72rem, 1.1vw, .88rem); font-weight: 400; letter-spacing: .44em; padding-left: .44em; text-transform: uppercase; color: var(--text-2); }
 @keyframes logoIn { from { opacity: 0; transform: translateY(16px) scale(.96); filter: blur(10px); } to { opacity: 1; transform: none; filter: blur(0); } }
-@keyframes shine { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@keyframes shine { from { background-position: 100% 0, 0 0; } to { background-position: 0 0, 0 0; } }
 .loader-mark {
   display: flex;
   gap: .6em;
@@ -1184,6 +1178,7 @@ body::after {
   .nav .btn-sm { padding: 0 12px; }
   .sound-btn { width: 34px; border-color: transparent; }
   .hero-ctas .btn-ghost { display: none; }
+  .loader-logo { width: 76vw; }
   .partner-logo-villegas { width: 230px; }
   .partner-logo-firma { width: 200px; }
   .stats dd { font-size: 2rem; }
