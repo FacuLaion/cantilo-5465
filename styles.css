@@ -659,7 +659,7 @@ body::after {
   margin-inline: auto;
 }
 .ident-frame { position: relative; height: min(82svh, 980px); overflow: hidden; }
-.ident-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ident-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; }
 .ident-a { transform-origin: 50% 70%; will-change: transform; }
 .ident-b { clip-path: inset(0 0 0 100%); will-change: clip-path; }
 .ident-line { position: absolute; top: 0; bottom: 0; left: 0; width: 1px; background: var(--accent); opacity: 0; box-shadow: 0 0 0 .5px rgba(211, 181, 143, .4); }
@@ -922,13 +922,13 @@ body::after {
   -webkit-mask: url(assets/img/fnv-dev.png) center / contain no-repeat;
   mask: url(assets/img/fnv-dev.png) center / contain no-repeat;
 }
+.foot-copy { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px 22px; }
 .foot-arch { display: inline-flex; align-items: center; gap: 10px; }
-/* La firma tiene el rulo arriba y el trazo abajo: se sube 4 px para que el trazo quede a la altura del texto */
-.foot-arch-logo { display: inline-block; width: 58px; aspect-ratio: 400 / 146; transform: translateY(-4px); background: var(--text-3); -webkit-mask: url(assets/img/np-firma.png) center / contain no-repeat; mask: url(assets/img/np-firma.png) center / contain no-repeat; }
-.foot-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--text-3); }
+.foot-arch-logo { display: inline-block; width: 106px; aspect-ratio: 1275 / 314; background: var(--text-3); -webkit-mask: url(assets/img/np-logo.png) center / contain no-repeat; mask: url(assets/img/np-logo.png) center / contain no-repeat; }
+.foot-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--text-3); }
 .foot-bottom a { display: inline-flex; align-items: center; gap: 8px; transition: color .3s; }
 .foot-bottom a:hover { color: var(--text); }
-.foot-credits { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; text-align: center; }
+.foot-credits { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 6px 22px; text-align: center; font-size: .74rem; }
 .foot-credit strong { font-weight: 400; color: var(--text-2); }
 .foot-credit a { display: inline; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
 
@@ -1100,7 +1100,8 @@ body::after {
     row-gap: 22px;
     padding-top: calc(var(--nav-h) + 12px);
   }
-  .ident-frame { height: 50svh; }
+  .ident-frame { height: 58svh; }
+  .ident-frame img { object-position: 50% 100%; }
   .ident .h2 { font-size: 1.65rem; }
   .ident-text .lead { margin-top: 12px; font-size: .95rem; }
   .ident-steps { margin-top: 16px; grid-template-columns: 1fr 1fr; column-gap: 16px; }

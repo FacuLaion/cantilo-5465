@@ -420,12 +420,12 @@
   /* ---------- Edificio 3D + niveles ---------- */
   const LEVELS = [
     { name: 'Subsuelo', cota: '−2,50', items: ['Bicicletero con sector asignado para cada unidad', 'Espacio para personal de mantenimiento', 'Baño de servicio', 'Llegada de ascensor y escalera'] },
-    { name: 'Planta baja', cota: '±0,00', items: ['Estar, comedor y cocina integrados de 6,92 × 5,82 m', 'Dormitorios de 4,04 × 3,45 m y 2,63 × 3,06 m', 'Dos baños completos', 'Patio propio al contrafrente', 'Acceso independiente desde el hall'] },
-    { name: 'Primer piso', cota: '+3,20', items: ['Estar y comedor de 4,76 × 5,87 m', 'Cocina de 3,30 × 2,72 m', 'Dormitorio de 2,89 × 3,65 m con vestidor', 'Dormitorio de 5,33 × 3,09 m', 'Dos baños y toilette', 'Balcón al frente con parrilla en balcón o sector de expansión'] },
-    { name: 'Segundo piso', cota: '+6,12', items: ['Estar, comedor y cocina de 5,17 × 5,87 m', 'Cocina de 2,89 × 3,42 m', 'Dormitorio de 2,89 × 3,65 m con vestidor', 'Dormitorio de 5,33 × 3,09 m', 'Dos baños y toilette', 'Balcón al frente con parrilla en balcón o sector de expansión'] },
+    { name: 'Planta baja', cota: '±0,00', items: ['136 m² totales: 101 m² cubiertos y 35 m² de patio', 'Estar, comedor y cocina integrados de 6,92 × 5,82 m', 'Suite principal de 4,04 × 3,45 m con baño en suite', 'Dormitorio secundario de 2,63 × 3,06 m con baño completo', 'Patio propio al contrafrente con parrilla', 'Acceso independiente desde el hall'] },
+    { name: 'Primer piso', cota: '+3,20', items: ['154 m² totales: 109 m² cubiertos, 12 m² de balcón y 33 m² de terraza al contrafrente', 'Estar y comedor de 4,76 × 5,87 m', 'Cocina de 3,30 × 2,72 m', 'Suite principal de 2,89 × 3,65 m con vestidor y baño en suite', 'Dormitorio secundario de 5,33 × 3,09 m con baño completo', 'Toilette de recepción', 'Balcón al frente con parrilla'] },
+    { name: 'Segundo piso', cota: '+6,12', items: ['165 m² totales: 109 m² cubiertos, 12 m² de balcón y 44 m² de terraza al frente', 'Estar, comedor y cocina de 5,17 × 5,87 m', 'Cocina de 2,89 × 3,42 m', 'Suite principal de 2,89 × 3,65 m con vestidor y baño en suite', 'Dormitorio secundario de 5,33 × 3,09 m con baño completo', 'Toilette de recepción', 'Balcón al frente y parrilla en la terraza propia de 44 m²'] },
     { name: 'Terraza', cota: '+9,00', items: ['Azotea', 'Sala de máquinas', 'Tanques de reserva de agua'] },
   ];
-  const OVERVIEW = { name: 'El edificio', cota: 'Cinco niveles', items: ['Tres unidades: planta baja, primer y segundo piso', 'Ascensor desde el subsuelo', 'Bicicletero en subsuelo', 'Terraza con sala de máquinas'] };
+  const OVERVIEW = { name: 'El edificio', cota: 'Cuatro niveles + terraza', items: ['Tres unidades de 136, 154 y 165 m² totales', 'Parrilla en todas las unidades', 'Ascensor desde el subsuelo', 'Bicicletero en subsuelo'] };
 
   const ed = $('#edificio');
   const lvlBtns = $$('.lvl-btn', ed);
